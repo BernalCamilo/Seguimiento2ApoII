@@ -1,5 +1,7 @@
 package model;
 
+import Exception.NegativeNumberException;
+
 public class Ingredient {
 	private String name;
 	private double weight;
@@ -17,8 +19,20 @@ public class Ingredient {
 		return weight;
 	}
 	
-	public void addWeight(double additionalW) {
-		weight = weight + additionalW;
+	public void addWeight(double additionalW) throws NegativeNumberException {
+		if (additionalW>0) {
+			weight = weight + additionalW;
+		} else {
+			throw new NegativeNumberException();
+		}
+	}
+	
+	public void menusWeight(double menusW) throws NegativeNumberException {
+		if (menusW>0) {
+			weight = weight - menusW;
+		} else {
+			throw new NegativeNumberException();
+		}
 	}
 	
 }
